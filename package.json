@@ -1,0 +1,34 @@
+{
+  "name": "fountain-cn",
+  "version": "0.0.1",
+  "description": "Fountain 语言中文手册",
+  "scripts": {
+    "dev": "npm run docs:dev",
+    "build": "npm run docs:build",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/advjs/fountain-cn.git"
+  },
+  "author": {
+    "email": "me@yunyoujun.cn",
+    "name": "YunYouJun",
+    "url": "https://www.yunyoujun.cn"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/advjs/fountain-cn/issues"
+  },
+  "homepage": "https://fountain.advjs.org",
+  "devDependencies": {
+    "@types/node": "^16.11.0",
+    "sass": "^1.43.2",
+    "unplugin-icons": "^0.12.15",
+    "unplugin-vue-components": "^0.15.6",
+    "vite-plugin-windicss": "^1.4.11",
+    "vitepress": "^0.20.0"
+  }
+}
