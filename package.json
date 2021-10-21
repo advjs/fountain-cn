@@ -24,11 +24,11 @@
   },
   "homepage": "https://fountain.advjs.org",
   "devDependencies": {
-    "@types/node": "^16.11.0",
+    "@types/node": "^16.11.1",
     "sass": "^1.43.2",
-    "unplugin-icons": "^0.12.15",
-    "unplugin-vue-components": "^0.15.6",
-    "vite-plugin-windicss": "^1.4.11",
+    "unplugin-icons": "^0.12.16",
+    "unplugin-vue-components": "^0.16.0",
+    "vite-plugin-windicss": "^1.4.12",
     "vitepress": "^0.20.0"
   }
 }

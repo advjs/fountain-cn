@@ -9,6 +9,4 @@ Fountain 允许您在任何地方、任何计算机或平板电脑上使用任�
 
 从 John Gruber 的 [Markdown](http://daringfireball.net/projects/markdown/) 中汲取灵感，Fountain 的文件可读性非常好。当需要特殊的语法时，它是直接和直观的。
 
-## 为什么有 Fountain CN?
-
-...
+[为什么有 Fountain CN?](https://fountain.advjs.org/guide/why.html)
