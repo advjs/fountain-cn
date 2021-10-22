@@ -16,6 +16,10 @@ function getGuideSidebar() {
           link: '/guide/'
         },
         {
+          text: '语法',
+          link: '/guide/syntax'
+        },
+        {
           text: 'Fountain 相关资源',
           link: '/guide/resources'
         },
