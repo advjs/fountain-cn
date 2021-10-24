@@ -20,10 +20,17 @@ function getGuideSidebar() {
           link: '/guide/syntax'
         },
         {
+          text: '如何...',
+          link: '/guide/howto'
+        },
+        {
           text: 'Fountain 相关资源',
           link: '/guide/resources'
         },
-        
+        {
+          text: '术语',
+          link: '/guide/term'
+        },
       ]
     },
     {

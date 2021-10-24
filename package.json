@@ -24,7 +24,7 @@
   },
   "homepage": "https://fountain.advjs.org",
   "devDependencies": {
-    "@types/node": "^16.11.2",
+    "@types/node": "^16.11.4",
     "sass": "^1.43.3",
     "unplugin-icons": "^0.12.16",
     "unplugin-vue-components": "^0.16.0",

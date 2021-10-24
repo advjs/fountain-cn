@@ -21,3 +21,7 @@
 
 - [betterfountain](https://github.com/piersdeseilligny/betterfountain): VSCode 插件，可在扩展商店安装
 - [injuben](https://github.com/injuben/injuben): 一个兼容 Fountain 并针对中文进行优化的在线剧本解析器
+
+### 其他介绍
+
+- [用 Fountain 编剧：从入门到继续入门｜少数派](https://sspai.com/post/35135)
