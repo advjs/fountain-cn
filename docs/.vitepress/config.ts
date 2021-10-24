@@ -8,7 +8,7 @@ const config: UserConfig = {
   title: 'Fountain',
   description: '剧本标记语言 Fountain 中文手册',
   themeConfig: {
-    repo: 'advjs/fountain',
+    repo: 'advjs/fountain-cn',
     docsDir: 'docs',
     editLinks: true,
     editLinkText: '帮助我们改善此页',
