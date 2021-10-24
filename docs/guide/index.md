@@ -1,3 +1,7 @@
+---
+link: https://fountain.io/
+---
+
 # 什么是 Fountain？
 
 > Fountain，英文意为「喷泉」。

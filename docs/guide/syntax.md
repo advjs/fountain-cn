@@ -12,7 +12,7 @@ Fountain 的黄金法则很简单：让它看起来像一个剧本。
 - Scene Heading（场景标题）以 `INT`、`EXT` 等开头。
 - Character（角色）名称是大写字母。
 - Dialogue（对话部分）紧跟在角色之后。
-- Parentheticals（附加说明）被包裹在（括号）内。
+- Parentheticals（旁白）被包裹在（括号）内。
 - Transitions（转场）以 `TO:` 结束。
 
 这些都是基本知识。如果你想要更深入一点：
@@ -177,3 +177,201 @@ Yippie ki-yay! I got my lower-case C back!
 ```
 
 Fountain 将删除 `@`，并将 `McCLANE` 作为人物，保留其混合大小写。
+
+## Dialogue 对话
+
+对话是指字符或括号元素之后的任何文本。
+
+```md
+SANBORN
+A good 'ole boy. You know, loves the Army, blood runs green. Country boy. Seems solid.
+```
+
+对话中允许手动换行，也允许故意 "空 "行--参见[Line Breaks 换行](https://fountain.io/syntax#section-br) 部分。
+
+```md
+DAN
+Then let's retire them.
+_Permanently_.
+```
+
+## Parenthetical 旁白
+
+旁白跟在人物（Character）或对话（Dialogue）元素后面，使用圆括号 `()` 包裹。
+
+```md
+STEEL
+(starting the engine)
+So much for retirement!
+```
+
+## Lyrics 歌词
+
+你创建一句歌词的方法是以一个带波浪号 `~` 的行开始。
+
+```md
+~Willy Wonka! Willy Wonka! The amazing chocolatier!
+~Willy Wonka! Willy Wonka! Everybody give a cheer!
+```
+
+Fountain 将去掉 `~`，并让应用程序对歌词进行适当的调整。歌词总是被强制的。没有“自动”的方式来获得它们。
+
+## Transition 转场
+
+对转场元素的要求是：
+
+- 大写字母
+- 前面是空行，后面是空行
+- 以 `TO:` 结尾
+
+例如：
+
+```md
+Jack begins to argue vociferously in Vietnamese (?), But mercifully we...
+
+CUT TO:
+
+EXT. BRICK'S POOL - DAY
+```
+
+**高级用户**：你可以用大于符号 `>` 开始，强制任何一行作为一个过渡元素。
+
+```md
+Brick and Steel regard one another. A job well done.
+
+> Burn to White.
+```
+
+**高级用户**: 如果一行符合过渡规则，但你希望它被解释为别的东西，你有两个选择。
+
+- 在它前面加一个句号 `.`，以强制作为一个场景标题，或者...
+- 在冒号后添加一个或多个空格，使该行被解释为行动（因为该行不再以冒号结束）。
+
+## Centered Text 居中文本
+
+居中的文本构成一个行动元素，并以大于/小于的方式置于括号内。
+
+`>THE END<`
+
+前导空格在 Action 中通常会被保留，但对于居中的文本则不然，所以如果你愿意，你可以在文本和 `><` 之间添加空格。
+
+```md
+> THE END <
+```
+
+## Emphasis 强调
+
+Fountain 遵循 Markdown 的强调规则，但它保留了下划线的使用，这与剧本中的斜体字是不能互换的。
+
+```txt
+*italics*
+**bold**
+***bold italics***
+_underline_
+```
+
+通过这种方式，作者可以混合搭配粗体、斜体和下划线，就像编剧经常做的那样。
+
+```md
+From what seems like only INCHES AWAY. _Steel's face FILLS the *Leupold Mark 4* scope_.
+```
+
+如果你需要逐字逐句地使用任何强调语法，你可以使用 Markdown 约定的反斜杠来转义这些字符。
+
+```md
+Steel enters the code on the keypad: **\*9765\***
+```
+
+信不信由你，这变成了：
+
+> Steel enters the code on the keypad: **\*9765\***
+
+与 Markdown 一样，强调字符周围的空格是有意义的。在这个例子中，星号不会在它们之间触发斜体，因为两者的左边都有一个空格。
+
+```md
+He dialed *69 and then *23, and then hung up.
+```
+
+但在这种情况下，星号之间的文字将被斜体化。
+
+```txt
+He dialed *69 and then 23*, and then hung up.
+```
+
+作者需要使得一个或两个星号逃逸，以避免意外的斜体。
+
+```md
+He dialed \*69 and then 23\*, and then hung up.
+```
+
+与 Markdown 一样，强调也不会跨越换行符。因此，在这个例子的格式化输出中没有斜体字，只有星号。
+
+```txt
+As he rattles off the long list, Brick and Steel *share a look.
+
+This is going to be BAD.*
+```
+
+## Title Page 标题页
+
+Fountain 文档中首页之事总是可选的标题。
+信息的编码格式为 `key: value`。键值可以有空格（例如：Draft date），但必须以冒号结束。
+
+```txt
+Title:
+    _**BRICK & STEEL**_
+    _**FULL RETIRED**_
+Credit: Written by
+Author: Stu Maschwitz
+Source: Story by KTM
+Draft date: 1/20/2012
+Contact:
+    Next Level Productions
+    1588 Mission Dr.
+    Solvang, CA 93463
+```
+
+建议标题（Title）、版权（Credit）、作者（Author）（或 Authors，两者都是有效的关键语法）和来源（Source）在格式化的输出中会被放在页面的中央。
+联系人 `Contact` 和起草日期 `Draft date` 将被放在左下方。
+
+数值可以与键合在一起，也可以缩进到键下面的换行上（如上面的联系）。缩进是 3 个或更多的空格，或一个制表符。缩进模式允许同一个键有多个值（多个作者，多个地址行）。
+
+键值可能会改变，但上面列出的那些键值构成了一个最小的有用集合。如果你将不支持的键值添加到你的文档中，它们将被忽略，但你可能会发现它们作为元数据是有用的。
+
+所有标题页部分都是可选的。如：
+
+```md
+Draft date: 6/23/2012
+```
+
+...本身就是一个有效的标题页。
+
+分页符是隐含在标题页之后。只需放下两行并开始编写剧本。
+
+## Page Breaks 分页符
+
+分页符是指包含三个或更多连续等号的一行，仅此而已。
+分页符对电视脚本很有用，因为在电视脚本中，分页符是明确标示的，也可以用来创建具有引言或序幕文字的“虚荣浮华”的首页。
+
+```md
+The General Lee flies through the air. FREEZE FRAME.
+
+NARRATOR
+Shoot, to the Dukes that's about like taking Grandma for a Sunday drive.
+
+> **End of Act One** <
+
+===
+
+> **Act Two** <
+
+The General Lee hangs in the air, right where we left it. The NARRATOR'S voice kicks in.
+```
+
+## Punctuation 标点
+
+一些 Markdown 解释器将普通文本中常见的标点符号的简写转换为它们的排版对应物。
+例如，三个连续的破折号变成了 em-dash，三个连续的句号变成了省略号，直引号变成了曲引号。
+
+Fountain 不做这些，因为剧本的排版惯例是模仿打字机。
+无论你如何输入撇号、引号、破折号和圆点，那就是它们在剧本中的最终样子。
