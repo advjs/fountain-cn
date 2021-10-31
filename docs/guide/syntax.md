@@ -375,3 +375,197 @@ The General Lee hangs in the air, right where we left it. The NARRATOR'S voice k
 
 Fountain 不做这些，因为剧本的排版惯例是模仿打字机。
 无论你如何输入撇号、引号、破折号和圆点，那就是它们在剧本中的最终样子。
+
+## Line Breaks 换行符
+
+与一些标记语言不同，Fountain 把每一个回车都当作是故意地。
+这使得作者可以控制 Action 元素中段落之间的间距，正如这个经典的例子中所看到的。
+
+```md
+Murtaugh, springing hell bent for leather -- and folks, grab your hats ... because just then, a BELL COBRA HELICOPTER crests the edge of the bluff.
+
+An explosion of sound...
+As it rises like an avenging angel ...
+Hovers, shattering the air with turbo-throb, sandblasting the hillside with a roto-wash of loose dirt, tables, chairs, everything that's not nailed down ...
+
+Screaming, chaos, frenzy.
+Three words that apply to this scene.
+```
+
+所有这些行都被解释为 Action，而作者的单空格和双空格的决定将被保留。
+
+在一些不寻常的情况下，这将会失败。如果你写了这样的东西：
+
+```md
+INT. CASINO - NIGHT
+
+THE DEALER eyes the new player warily.
+
+SCANNING THE AISLES...
+Where is that pit boss?
+
+No luck. He has no choice to deal the cards.
+```
+
+## Indenting 缩进
+
+除 Action 外，其他元素中的前导制表符或空格将被忽略。
+如果你选择使用它们，你的 Fountain 文本文件可能看起来更像一个电影剧本。
+
+在这个例子中，过渡部分前面有四个制表符 `⇥`，角色名称有三个，旁白有两个，对话部分有一个。
+
+```md
+                CUT TO:
+
+INT. GARAGE - DAY
+
+BRICK and STEEL get into Mom's PORSCHE, Steel at the wheel. They pause for a beat, the gravity of the situation catching up with them.
+
+            BRICK
+    This is everybody we've ever put away.
+
+            STEEL
+        (starting the engine)
+    So much for retirement!
+
+They speed off. To destiny!
+```
+
+Tabs 不会为 Fountain ”提示“格式化。
+它们会被忽略，并且这些行会被解释为不存在。
+但在 Action 中是个例外，它保留前面的制表符和空格。
+这使得作者可以手动缩进行。
+关于这一点，请见 [Action](#action-动作)。
+
+## Notes 注释
+
+注释是通过用双括号包围一些文本来创建的。注释可以插在行与行之间，或插在行的中间。
+
+```txt
+INT. TRAILER HOME - DAY
+
+This is the home of THE BOY BAND, AKA DAN and JACK[[Or did we think of actual names for these guys?]].  They too are drinking beer, and counting the take from their last smash-and-grab.  Money, drugs, and ridiculous props are strewn about the table.
+
+[[It was supposed to be Vietnamese, right?]]
+
+JACK
+(in Vietnamese, subtitled)
+*Did you know Brick and Steel are retired?*
+```
+
+在解析过程中，注释周围的空行将被删除。
+
+注释可以包含回车，但如果你希望一个注释包含一个空行，你必须在那里放置两个空格，将元素“连接”成一个。
+
+```txt
+His hand is an inch from the receiver when the phone RINGS.  Scott pauses for a moment, suspicious for some reason.[[This section needs work.
+Either that, or I need coffee.
+{two spaces}
+Definitely coffee.]] He looks around.  Phone ringing.
+```
+
+注释被设计成与编剧软件中常见的插入式注释类型兼容，例如 Final Draft 的 Scriptnotes。要隐藏或"注释"文本的部分，请使用 [boneyard](https://fountain.io/syntax#section-bone) 语法。
+
+> 译者注：事实上基于 Markdown 实现的 Fountain 解析，如果支持 html 时，使用 `<!-- -->` 的注释方式也不失为一个好的办法。
+
+## Boneyard 墓地
+
+> 这个「墓地」翻译有点奇怪，不知道有没有别的术语。
+
+如果你想让 Fountain 忽略一些文本，就用 `/*一些文本*/` 来包裹它。在这个例子中，整个场景被放到了 boneyard 中。在格式化的输出中，它将被完全忽略。
+
+```txt
+COGNITO
+Everyone's coming after you mate!  Scorpio, The Boy Band, Sparrow, Point Blank Sniper...
+
+As he rattles off the long list, Brick and Steel share a look.  This is going to be BAD.
+
+CUT TO:
+/*
+INT. GARAGE - DAY
+
+BRICK and STEEL get into Mom's PORSCHE, Steel at the wheel.  They pause for a beat, the gravity of the situation catching up with them.
+
+BRICK
+This is everybody we've ever put away.
+
+STEEL
+(starting the engine)
+So much for retirement!
+
+They speed off.  To destiny!
+
+CUT TO:
+*/
+EXT. PALATIAL MANSION - DAY
+
+An EXTREMELY HANDSOME MAN drinks a beer.  Shirtless, unfortunately.
+```
+
+Boneyard 是语法不跨行的例外。只要你愿意，你的 `/* ... */` 对可以横跨你的剧本。
+
+## Sections and Synopses 章节和概要
+
+_Sections_ 是管理故事结构的可选标记。
+一些剧本应用使用这些标记，类似于导航视图中的嵌套文件夹。
+
+Fountain 的 Sections 类似于 Markdown 的 ATX 风格标题，但不同的是，它们不会出现在格式化的输出中。
+
+通过在一行前面加上一个或多个英镑符号 `#` 字符来创建一个章节。
+
+```md
+CUT TO:
+
+# This is a Section
+
+INT. PALACE HALLWAY - NIGHT
+```
+
+你可以通过添加更多的 `#` 字符来嵌套 Sections。
+
+```md
+# Act
+
+## Sequence
+
+### Scene
+
+## Another Sequence
+
+# Another Act
+```
+
+如果你使用一个能识别 Markdown 标题的应用（比如 Mac 上的 [MultiMarkdown Composer](http://bit.ly/mmdcomposer) 或 iPad 上的 [Writing Kit](http://bit.ly/writing_kit)）来用 Fountain 写作，你就能轻松地浏览你的剧本，就像浏览 Markdown 文档一样。
+
+Fountain 的 Sections 纯粹是作者的工具--它们在格式化输出中被完全忽略。在这方面，它们很像 Movie Magic Screenwriter 中提供的结构工具。
+
+Synopses 梗概是描述章节或场景的可选文本块。
+
+梗概是以等号 `=` 为前缀的单行，它们可以位于剧本的任何地方。
+
+```md
+# ACT I
+
+= Set up the characters and the story.
+
+EXT. BRICK'S PATIO - DAY
+
+= This scene sets up Brick & Steel's new life as retirees. Warm sun, cold beer, and absolutely nothing to do.
+
+A gorgeous day. The sun is shining. But BRICK BRADDOCK, retired police detective, is sitting quietly, contemplating -- something.
+```
+
+与 Sections（章节） 一样，Synopses（概要）纯粹是作家在提纲和组织过程中的可选工具。它们在格式化的输出中被忽略。
+
+并非所有的编剧应用程序都支持提要或章节，但大多数都支持某种无形的标记，比如 Notes（笔记）。
+这些应用程序可能会选择导入 Fountain 的概要和章节作为注释。
+有些应用程序支持由单一场景标题定义的 “场景” 概要。这类应用可能会正确地导入场景标题概要，但需要导入章节概要作为注释。
+
+## Error Handling 错误处理
+
+Fountain 会尽力将文本文件合理地解释为剧本格式。
+当有歧义时，Fountain 将文本返回为 Action。
+与其跳过格式错误的文本，不如「以错误的格式」向作者展示他们所写的内容。
+
+Fountain 对格式错误的最好防范措施是，它不会在双换行处寻找结尾的句法元素，防止你把一半的剧本变成评论，或斜体字。
+这条规则的例外是 `/* boneyard */` 包装器，它被允许跨越多行。

@@ -20,6 +20,14 @@ function getGuideSidebar() {
           link: '/guide/syntax'
         },
         {
+          text: '示例',
+          link: '/guide/examples'
+        },
+        {
+          text: '更新日志',
+          link: '/guide/changelog'
+        },
+        {
           text: '如何...',
           link: '/guide/howto'
         },

@@ -24,10 +24,10 @@
   },
   "homepage": "https://fountain.advjs.org",
   "devDependencies": {
-    "@types/node": "^16.11.4",
+    "@types/node": "^16.11.6",
     "consola": "^2.15.3",
     "esno": "^0.10.1",
-    "sass": "^1.43.3",
+    "sass": "^1.43.4",
     "unplugin-icons": "^0.12.16",
     "unplugin-vue-components": "^0.16.0",
     "vite-plugin-windicss": "^1.4.12",

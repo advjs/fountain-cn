@@ -7,7 +7,7 @@
 
 ### 亲眼看看
 
-探索 Fountain 的最佳方式是查看文件。比较 `.喷泉`，`.pdf` 和 `.fdx` 版本的大鱼。
+探索 Fountain 的最佳方式是查看文件。比较 `.fountain`，`.pdf` 和 `.fdx` 版本的大鱼。
 
 下载大鱼「Big Fish」:
 
