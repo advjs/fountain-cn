@@ -1,37 +1,44 @@
-import path from 'path'
-import { defineConfig } from 'vite'
+import path from "path";
+import { defineConfig } from "vite";
 
-import Components from 'unplugin-vue-components/vite'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
-import WindiCSS from 'vite-plugin-windicss'
+import Components from "unplugin-vue-components/vite";
+
+import Unocss from "unocss/vite";
+import { presetUno, presetAttributify } from "unocss";
+import presetIcons from "@unocss/preset-icons";
 
 export default defineConfig({
   resolve: {
     alias: {
-      '@/': `${path.resolve(__dirname, '.vitepress/theme')}/`,
+      "@/": `${path.resolve(__dirname, ".vitepress/theme")}/`,
     },
   },
   build: {
     rollupOptions: {
       output: {
         manualChunks: {
-          windicss: ['windicss'],
+          windicss: ["windicss"],
         },
       },
     },
   },
   plugins: [
     Components({
-      dirs: ['.vitepress/theme/components'],
-      extensions: ['vue', 'ts'],
+      dirs: [".vitepress/theme/components"],
+      extensions: ["vue", "ts"],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-      resolvers: [
-        IconsResolver(),
-      ],
       dts: true,
     }),
-    Icons(),
-    WindiCSS(),
+    Unocss({
+      presets: [
+        presetAttributify({
+          /* preset options */
+        }),
+        presetUno(),
+        presetIcons({
+          /* options */
+        }),
+      ],
+    }),
   ],
-})
+});

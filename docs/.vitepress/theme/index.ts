@@ -1,6 +1,9 @@
-import DefaultTheme from "vitepress/dist/client/theme-default";
+import YouTheme from "vitepress-theme-you";
 import "./styles/index.scss";
 
+// https://github.com/antfu/unocss
+import "uno.css";
+
 export default {
-  ...DefaultTheme,
+  ...YouTheme,
 };

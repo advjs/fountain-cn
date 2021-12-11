@@ -1,6 +1,7 @@
 ---
 home: true
 heroText: Fountain CN
+heroIconClass: i-ri-book-line
 tagline: 📖 剧本标记语言 Fountain 中文手册
 
 actionText: 开始阅读

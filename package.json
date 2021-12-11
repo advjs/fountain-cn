@@ -24,13 +24,19 @@
   },
   "homepage": "https://fountain.advjs.org",
   "devDependencies": {
-    "@types/node": "^16.11.6",
+    "@iconify-json/ri": "^1.0.2",
+    "@types/node": "^16.11.12",
+    "@unocss/preset-icons": "^0.16.0",
     "consola": "^2.15.3",
-    "esno": "^0.10.1",
-    "sass": "^1.43.4",
-    "unplugin-icons": "^0.12.16",
-    "unplugin-vue-components": "^0.16.0",
-    "vite-plugin-windicss": "^1.4.12",
-    "vitepress": "^0.20.0"
+    "esno": "^0.12.1",
+    "sass": "^1.45.0",
+    "unocss": "^0.16.0",
+    "unplugin-vue-components": "^0.17.8",
+    "vite-plugin-windicss": "^1.5.4",
+    "vitepress": "^0.20.4"
+  },
+  "dependencies": {
+    "@vueuse/core": "^7.2.2",
+    "vitepress-theme-you": "^0.0.11"
   }
 }
