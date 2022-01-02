@@ -4,11 +4,12 @@ heroText: Fountain CN
 heroIconClass: i-ri-book-line
 tagline: 📖 剧本标记语言 Fountain 中文手册
 
-actionText: 开始阅读
+actions:
+  - text: 开始阅读
+    link: /guide/
+  - text: 英文官网
+    link: https://fountain.io/
 actionLink: /guide/
-
-altActionText: 英文官网
-altActionLink: https://fountain.io/
 
 features:
   - title: ✍️ 翻译
@@ -18,7 +19,12 @@ features:
   - title: 🍱 资源
     details: 收集 Fountain 相关资源
 
-footer: MIT Licensed | Copyright © 2021-present Fountain & ADV.JS
+footer:
+  license: MIT Licensed
+  since: 2021
+  author:
+    name: YunYouJun
+    url: https://www.yunyoujun.cn
 ---
 
 ## Todo

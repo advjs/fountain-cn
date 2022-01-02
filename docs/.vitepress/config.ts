@@ -3,7 +3,12 @@ import type { UserConfig } from "vitepress";
 import { nav } from "./config/nav";
 import { sidebar } from "./config/sidebar";
 
+// @ts-ignore
+import baseConfig from 'vitepress-theme-you/config'
+
 const config: UserConfig = {
+  extends: baseConfig,
+
   lang: "zh-CN",
   title: "Fountain",
   description: "剧本标记语言 Fountain 中文手册",
